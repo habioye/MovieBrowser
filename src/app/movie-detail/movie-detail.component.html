@@ -39,8 +39,38 @@
         </div>
       </div>
       <div class="col-7">
-        <div class="row border-top border-3">
-          <div class="col lead pt-5">{{ movie.Plot }}</div>
+        <div
+          *ngIf="movie.Ratings.length > 0"
+          class="row align-items-center border-top border-3"
+        >
+          <h2 class="">Ratings</h2>
+          <div
+            *ngFor="let rating of movie.Ratings"
+            class="col-auto rating-card p-2 m-2 lead border rounded text-center"
+          >
+            <!-- Display correct logo -->
+            <img
+              *ngIf="rating.Source == 'Internet Movie Database'"
+              src="imdb_logo.svg"
+              width="100px"
+            />
+            <img
+              *ngIf="rating.Source == 'Rotten Tomatoes'"
+              src="rotten_tomatoes_logo.png"
+              width="100px"
+            />
+            <img
+              *ngIf="rating.Source == 'Metacritic'"
+              src="metacritic_logo.webp"
+              width="100px"
+            />
+
+            <div>{{ rating.Value }}</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col lead">{{ movie.Plot }}</div>
         </div>
 
         <div *ngIf="movie.Director != 'N/A'" class="row lead">
@@ -61,17 +91,6 @@
           <div class="col my-2">
             <h2>Awards</h2>
             <div>{{ movie.Awards }}</div>
-          </div>
-        </div>
-
-        <div *ngIf="movie.Ratings.length > 0" class="row">
-          <h2 class="">Ratings</h2>
-          <div
-            *ngFor="let rating of movie.Ratings"
-            class="col-auto rating-card p-2 m-2 lead border rounded text-center"
-          >
-            <div>{{ rating.Source }}</div>
-            <div>{{ rating.Value }}</div>
           </div>
         </div>
       </div>
