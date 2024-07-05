@@ -54,7 +54,7 @@ export class MovieDetailComponent {
         }
       )
     } else {
-      this.favorite.addMovie(this.movie.imdbID).subscribe(
+      this.favorite.addMovie(this.movie.imdbID, this.movie.Poster).subscribe(
         () => {
           this.isFavoriteMovie = true;
         },

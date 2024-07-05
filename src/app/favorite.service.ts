@@ -11,8 +11,8 @@ export class FavoriteService {
 
   constructor(private http: HttpClient){}
 
-  addMovie(movieId: string): Observable<any> {
-    const movie = {id: movieId}
+  addMovie(movieId: string, poster: string): Observable<any> {
+    const movie = {id: movieId, poster: poster}
     return this.http.post<any>(this.apiurl, movie, {
       headers: new HttpHeaders({
         'Content-type': 'application/json'
