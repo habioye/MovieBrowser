@@ -89,5 +89,6 @@
     left: 0%;
 }
 
-
-
+.rating-card:hover{
+    background-image: linear-gradient(rgb(255 255 255/25%) 0 0);
+}
