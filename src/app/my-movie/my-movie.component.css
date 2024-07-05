@@ -1,0 +1,25 @@
+.favorite-page {
+    background-color: #0f0f1e;
+    min-height: 100vh;
+    height: 100%;
+}
+
+.favorite-container {
+    color: white;
+    padding-top: 4rem;
+    display: flex;
+    gap: 2rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.movie-img {
+    width: 300;
+    height: 448;
+    cursor: pointer;
+}
+
+.title {
+    padding-top: 4rem;
+    color: white;
+}

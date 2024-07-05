@@ -37,7 +37,12 @@
         <div class="row-auto text-center">
           <p class="fs-4 col">{{ movie.Released }}</p>
         </div>
+        <div class="row-auto">
+          <label for="favorite" >Book Mark</label>
+          <input type="checkbox" name="favorite" id="favorite" [checked]="isFavoriteMovie" (change)="toggleFavorite()"/>
+        </div>
       </div>
+
       <div class="col-7">
         <div
           *ngIf="movie.Ratings.length > 0"

@@ -1,0 +1,10 @@
+<div class="favorite-page">
+    <div class="title">
+        <h1>My Favorite Movies</h1>
+    </div>
+    <div class="favorite-container">
+        <div *ngFor="let movie of myFMovies" class="movie-img">
+            <img (click)="navigateToMovie(movie.id)" [src]="movie.poster !== 'N/A' ? movie.poster : 'https://cringemdb.com/img/movie-poster-placeholder.png'"/>
+        </div>
+    </div>
+</div>
