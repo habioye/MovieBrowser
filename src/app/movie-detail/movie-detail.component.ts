@@ -17,13 +17,13 @@ export class MovieDetailComponent {
     const id = this.route.snapshot.paramMap.get('id');
     if (id){
       this.movieService.getMovieById(id).subscribe(data => {
-        this.movie = data;
-        if (this.movie.hasOwnProperty("Error")){
+        if (data.hasOwnProperty("Error")){
           this.error = "404: Incorrect IMDb ID";
+          this.movie = null;
         } else {
-          this.error = null
+          this.error = null;
+          this.movie = data;
         }
-        console.log(this.movie)
       })
     } 
   }

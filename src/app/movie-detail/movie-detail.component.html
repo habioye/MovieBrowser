@@ -1,30 +1,43 @@
 <div class="detail-page">
     <div *ngIf="movie" class="container">
+        <button routerLink="/">Back</button>
         <div class="row">
             <div class="col-5">
-                <div class="row">
+                <div class="row title">
                     <h1>{{movie.Title}}</h1>
                 </div>
-                <div class="row sub-title">
+                <div class="row sub-title border-top border-3">
                     <div class="col-auto"><p class="fs-5">{{movie.Year}}</p></div>
                     <div class="col-auto"><p class="fs-5">{{movie.Rated}}</p></div>
                     <div class="col-auto"><p class="fs-5">{{movie.Runtime}}</p></div>
                 </div>
                 <div class="row">
-                    <img src="{{movie.Poster}}"/>
+                    <img [src]="movie.Poster !== 'N/A' ? movie.Poster : 'https://cringemdb.com/img/movie-poster-placeholder.png'"/>
                 </div>
-                <div class="row">
+                <div class="row border-bottom border-3">
                     <div class="col-auto genre-container" *ngFor="let genre of movie.Genre.split(',')">
                         <p class="fs-4 genre">{{genre}}</p>
                     </div>
                 </div>
+                <div class="row-auto text-center">
+                    <p class="fs-4 col">{{movie.Released}}</p>
+                </div>
             </div>
             <div class="col-7">
-                <h1>{{movie.Title}}</h1>
+                <h1>{{movie.Title}}</h1> 
             </div>
         </div>
     </div>
-    <div *ngIf="error">
-        <h1>{{error}}</h1>
+
+    <div *ngIf="error" >
+        <div class="error-container">
+            <div class="error-message">
+                <h1>{{error}}</h1>
+            </div>
+            <div class="background-animation">
+                <img class='planet' src="https://tsparticles.github.io/404-templates/space/images/planet.svg" height="450"/>
+                <img class='astronaut'src="https://tsparticles.github.io/404-templates/space/images/astronaut.svg" height="40"/>
+            </div>
+        </div>
     </div>
 </div>
