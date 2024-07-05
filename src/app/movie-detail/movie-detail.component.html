@@ -1,47 +1,119 @@
 <div class="detail-page">
-    <div *ngIf="movie" class="container">
-        <button routerLink="/">Back</button>
-        <div class="row">
-            <div class="col-5">
-                <div class="row title">
-                    <h1>{{movie.Title}}</h1>
-                </div>
-                <div class="row sub-title border-top border-3">
-                    <div class="col-auto"><p class="fs-5">{{movie.Year}}</p></div>
-                    <div class="col-auto"><p class="fs-5">{{movie.Rated}}</p></div>
-                    <div class="col-auto"><p class="fs-5">{{movie.Runtime}}</p></div>
-                </div>
-                <div class="row">
-                    <img [src]="movie.Poster !== 'N/A' ? movie.Poster : 'https://cringemdb.com/img/movie-poster-placeholder.png'"/>
-                </div>
-                <div class="row border-bottom border-3">
-                    <div class="col-auto genre-container" *ngFor="let genre of movie.Genre.split(',')">
-                        <p class="fs-4 genre">{{genre}}</p>
-                    </div>
-                </div>
-                <div class="row-auto text-center">
-                    <p class="fs-4 col">{{movie.Released}}</p>
-                </div>
-                <div class="row-auto">
-                    <input type="checkbox" name="favorite" id="favorite" [checked]="isFavoriteMovie" (change)="toggleFavorite()"/>
-                    <label for="favorite" >Book Mark</label>
-                </div>
-            </div>
-            <div class="col-7">
-                <h1>{{movie.Title}}</h1> 
-            </div>
+  <div *ngIf="movie" class="container">
+    <button routerLink="/">Back</button>
+    <div class="row title">
+      <h1>{{ movie.Title }}</h1>
+    </div>
+    <div class="row">
+      <div class="col-5">
+        <div class="row sub-title border-top border-3">
+          <div class="col-auto">
+            <p class="fs-5">{{ movie.Year }}</p>
+          </div>
+          <div class="col-auto">
+            <p class="fs-5">{{ movie.Rated }}</p>
+          </div>
+          <div class="col-auto">
+            <p class="fs-5">{{ movie.Runtime }}</p>
+          </div>
         </div>
+        <div class="row">
+          <img
+            [src]="
+              movie.Poster !== 'N/A'
+                ? movie.Poster
+                : 'https://cringemdb.com/img/movie-poster-placeholder.png'
+            "
+          />
+        </div>
+        <div class="row border-bottom border-3">
+          <div
+            class="col-auto genre-container"
+            *ngFor="let genre of movie.Genre.split(',')"
+          >
+            <p class="fs-4 genre">{{ genre }}</p>
+          </div>
+        </div>
+        <div class="row-auto text-center">
+          <p class="fs-4 col">{{ movie.Released }}</p>
+        </div>
+      </div>
+      <div class="col-7">
+        <div
+          *ngIf="movie.Ratings.length > 0"
+          class="row align-items-center border-top border-3"
+        >
+          <h2 class="">Ratings</h2>
+          <div
+            *ngFor="let rating of movie.Ratings"
+            class="col-auto rating-card p-2 m-2 lead border rounded text-center"
+          >
+            <!-- Display correct logo -->
+            <img
+              *ngIf="rating.Source == 'Internet Movie Database'"
+              src="imdb_logo.svg"
+              width="100px"
+            />
+            <img
+              *ngIf="rating.Source == 'Rotten Tomatoes'"
+              src="rotten_tomatoes_logo.png"
+              width="100px"
+            />
+            <img
+              *ngIf="rating.Source == 'Metacritic'"
+              src="metacritic_logo.webp"
+              width="100px"
+            />
+
+            <div>{{ rating.Value }}</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col lead">{{ movie.Plot }}</div>
+        </div>
+
+        <div *ngIf="movie.Director != 'N/A'" class="row lead">
+          <div class="col my-2">
+            <h2>Director</h2>
+            <div>{{ movie.Director }}</div>
+          </div>
+        </div>
+
+        <div *ngIf="movie.Actors != 'N/A'" class="row lead">
+          <div class="col my-2">
+            <h2>Actors</h2>
+            <div>{{ movie.Actors }}</div>
+          </div>
+        </div>
+
+        <div *ngIf="movie.Awards != 'N/A'" class="row lead">
+          <div class="col my-2">
+            <h2>Awards</h2>
+            <div>{{ movie.Awards }}</div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div *ngIf="error" >
-        <div class="error-container">
-            <div class="error-message">
-                <h1>{{error}}</h1>
-            </div>
-            <div class="background-animation">
-                <img class='planet' src="https://tsparticles.github.io/404-templates/space/images/planet.svg" height="450"/>
-                <img class='astronaut'src="https://tsparticles.github.io/404-templates/space/images/astronaut.svg" height="40"/>
-            </div>
+    <div *ngIf="error">
+      <div class="error-container">
+        <div class="error-message">
+          <h1>{{ error }}</h1>
         </div>
+        <div class="background-animation">
+          <img
+            class="planet"
+            src="https://tsparticles.github.io/404-templates/space/images/planet.svg"
+            height="450"
+          />
+          <img
+            class="astronaut"
+            src="https://tsparticles.github.io/404-templates/space/images/astronaut.svg"
+            height="40"
+          />
+        </div>
+      </div>
     </div>
+  </div>
 </div>
