@@ -5,10 +5,10 @@ import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
   {path:"", component:MainComponent},
-];
-  {path:"**", redirectTo:""}
-    { path: 'movie/:id', component: MovieDetailComponent}
 
+  {path:"**", redirectTo:""},
+    { path: 'movie/:id', component: MovieDetailComponent}
+]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

@@ -17,7 +17,7 @@
   <mat-grid-tile *ngFor="let movie of movies">
     <!-- <a [routerLink]="['/movie', {{movie.id}}]> -->
     <div class="card" style="width: 18rem; flex-direction: column;">
-      <img src={{movie.Poster}} class="card-img-top" alt="image not available">
+      <img class="card-img-top" alt="image not available" (click)="navigateToMovie(movie.imdbID)" [src]="movie.Poster !== 'N/A' ? movie.Poster : 'https://cringemdb.com/img/movie-poster-placeholder.png'"/>
       <div class="card-body">
         <p class="card-text">{{movie.Plot}}</p>
       </div>
