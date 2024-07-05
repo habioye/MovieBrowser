@@ -15,17 +15,17 @@ export class MovieDetailComponent {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
     if (id){
       this.movieService.getMovieById(id).subscribe(data => {
-        this.movie = data;
-        console.log(this.movie)
-        this.error = null;
+        if (data.hasOwnProperty("Error")){
+          this.error = "404: Incorrect IMDb ID";
+          this.movie = null;
+        } else {
+          this.error = null;
+          this.movie = data;
+        }
       })
-    } else {
-      this.error = '404 No Found'
-      this.movie = null;
-    }
+    } 
   }
 
 }

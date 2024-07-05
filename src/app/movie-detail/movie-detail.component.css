@@ -1,0 +1,93 @@
+.detail-page {
+    background-color: #0f0f1e;
+    min-height: 100vh;
+    height: 100%;
+
+}
+
+.container {
+    color: white;
+    padding-top: 4rem;
+}
+
+.genre {
+    border: 1px solid white;
+    border-radius: 25px;
+    padding: 5px 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.genre:hover {
+    background-image: linear-gradient(rgb(255 255 255/25%) 0 0);
+}
+
+.genre-container {
+    align-items: center;
+    justify-content: center;
+    padding-top: 15px;
+}
+
+.sub-title {
+    color: rgb(199, 199, 199);
+}
+
+.title {
+    font-family: system-ui;
+}
+
+.container button{
+    background-color: #0f0f1e;
+    border: 1.5px solid green;
+    height: 2rem;
+    width: 4rem;
+    border-radius: 5px;
+    color: white;
+}
+
+.container button:hover{
+    background-color: green;
+    border: 1.5px solid #0f0f1e;
+    color: #0f0f1e;
+}
+
+.error-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 30rem;
+    margin: auto;
+    height: 100vh;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.background-animation {
+    position: relative;
+}
+
+
+.astronaut {
+    position: absolute;
+    top: 40%;
+    left: 69%;
+    animation: spin 10s linear infinite; 
+}
+
+.planet {
+    position: relative;
+    top: 0%;
+    left: 0%;
+}
+
+
+
