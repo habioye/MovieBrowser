@@ -15,8 +15,8 @@ export class OmdbService {
     return this.http.get<any>(this.uri + 'i=' + id);
   }
 
-  getMovieByTitle(title: string, year: number): Observable<any> {
-    return this.http.get<any>(this.uri + 't=' + title + '&y=' + year);
+  getMovieByTitle(title: string): Observable<any> {
+    return this.http.get<any>(this.uri + 't=' + title );
   }
 
   searchMovies(movie: string): Observable<any> {
