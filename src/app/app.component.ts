@@ -11,11 +11,6 @@ export class AppComponent {
 
   constructor(private service: OmdbService) {}
 
-  ngOnInit() {
-    this.searchMovies('titanic');
-    this.getMovieById('tt0120338');
-    this.getMovieByTitle('1984');
-  }
 
   searchMovies(movie: string) {
     this.service.searchMovies(movie).subscribe((data) => {
@@ -29,7 +24,7 @@ export class AppComponent {
   }
 
   getMovieByTitle(title: string) {
-    this.service.getMovieByTitle('titanic').subscribe((data) => {
+    this.service.getMovieByTitle(title).subscribe((data) => {
       console.log(data);
     });
   }
