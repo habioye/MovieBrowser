@@ -1,1 +1,8 @@
-<p>movie-detail works!</p>
+<div *ngIf="movie">
+    <div>
+        <h1>{{movie.Title}}</h1>
+    </div>
+</div>
+<div *ngIf="!movie">
+    <h1>Loading...</h1>
+</div>
