@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
-import { MainComponent } from './main/main.component';
+
+import { MyMovieComponent } from './my-movie/my-movie.component';
 
 const routes: Routes = [
-  {path:"", component:MainComponent},
-
-  {path:"**", redirectTo:""},
-    { path: 'movie/:id', component: MovieDetailComponent}
+    { path: 'movie/:id', component: MovieDetailComponent},
+    { path: 'mymovies', component: MyMovieComponent},
+    {path:"", component:MainComponent},
+    {path:"**", redirectTo:""},
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
