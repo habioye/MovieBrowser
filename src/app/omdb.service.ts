@@ -15,11 +15,11 @@ export class OmdbService {
     return this.http.get<any>(this.uri + 'i=' + id);
   }
 
-  getMovieByTitle(title: string): Observable<any> {
-    return this.http.get<any>(this.uri + 't=' + title);
+  getMovieByTitle(title: string, year: number): Observable<any> {
+    return this.http.get<any>(this.uri + 't=' + title + '&y=' + year);
   }
 
   searchMovies(movie: string): Observable<any> {
-    return this.http.get<any>(this.uri + 's=' + movie);
+    return this.http.get<any>(this.uri + 's=' + movie + '&type=movie');
   }
 }

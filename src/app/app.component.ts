@@ -23,8 +23,8 @@ export class AppComponent {
     });
   }
 
-  getMovieByTitle(title: string) {
-    this.service.getMovieByTitle(title).subscribe((data) => {
+  getMovieByTitle(title: string, year: number) {
+    this.service.getMovieByTitle(title, year).subscribe((data) => {
       console.log(data);
     });
   }
