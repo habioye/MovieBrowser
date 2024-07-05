@@ -16,7 +16,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
   imports: [
     BrowserModule,
     AppRoutingModule,
-FormsModule,
+    FormsModule,
     MatGridListModule,
     CommonModule,
   ],
