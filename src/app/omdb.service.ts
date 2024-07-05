@@ -22,4 +22,6 @@ export class OmdbService {
   searchMovies(movie: string): Observable<any> {
     return this.http.get<any>(this.uri + 's=' + movie + '&type=movie');
   }
+
+  
 }

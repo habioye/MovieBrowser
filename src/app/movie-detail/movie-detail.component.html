@@ -22,6 +22,10 @@
                 <div class="row-auto text-center">
                     <p class="fs-4 col">{{movie.Released}}</p>
                 </div>
+                <div class="row-auto">
+                    <input type="checkbox" name="favorite" id="favorite" [checked]="isFavoriteMovie" (change)="toggleFavorite()"/>
+                    <label for="favorite" >Book Mark</label>
+                </div>
             </div>
             <div class="col-7">
                 <h1>{{movie.Title}}</h1> 

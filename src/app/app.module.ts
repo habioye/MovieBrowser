@@ -11,11 +11,13 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 
 import { CommonModule } from '@angular/common';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MyMovieComponent } from './my-movie/my-movie.component';
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    MyMovieComponent
   ],
   imports: [
     BrowserModule,
